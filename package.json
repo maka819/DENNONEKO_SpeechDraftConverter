@@ -1,0 +1,25 @@
+{
+  "name": "dennoneko_speechdraftcreater",
+  "version": "1.0.0",
+  "description": "目的: Webフォームにデータを入力し、入力されたデータから条件に応じてテキストを生成する。",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maka819/DENNONEKO_SpeechDraftCreater.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maka819/DENNONEKO_SpeechDraftCreater/issues"
+  },
+  "homepage": "https://github.com/maka819/DENNONEKO_SpeechDraftCreater#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2"
+  }
+}
