@@ -1,6 +1,6 @@
 @font-face {
   font-family: '瀞ノグリッチ黒体';
-  src: url('https://cdn.glitch.global/5615bef9-5c3b-4631-9ca6-dbeceec0b29d/%E7%80%9E%E3%83%8E%E3%82%AF%E3%82%99%E3%83%AA%E3%83%83%E3%83%81%E3%82%B3%E3%82%99%E3%82%B7%E3%83%83%E3%82%AFH1.ttf?v=1744388116940') format('truetype');
+  src: url('/assets/fonts/瀞ノグリッチゴシックH1.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -22,7 +22,7 @@ body {
   text-align: center;
   background-image: 
     linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), 
-    url("https://cdn.glitch.global/5615bef9-5c3b-4631-9ca6-dbeceec0b29d/public%2Fassets%2Fimg%2Fbackground-dennoneko.jpg?v=1744386844852");
+    url("/assets/img/background-dennoneko.jpg");
   background-position: center;
   font-family: "瀞ノグリッチ黒体", sans-serif;
   font-optical-sizing: auto;
