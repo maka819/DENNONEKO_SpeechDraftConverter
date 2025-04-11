@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>インスタンスデータ変換</title>
+    <title>インスタンス割テキスト変換ツール</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>インスタンスデータ変換ツール</h1>
-    <form id="dataForm">
-        <textarea id="inputText" name="inputText" rows="10" cols="50" placeholder="データを入力してください..." required></textarea>
-        <br>
-        <button type="submit">変換する</button>
-    </form>
-    <h2>結果</h2>
-    <div id="result"></div>
-    <script src="js/functions.js"></script>
-    <script src="js/script.js"></script>
+  <div class="parent" >
+    <div class="child-box">
+      <h1 class="mb-32 glitch">インスタンス割テキスト変換ツール</h1>
+      <form id="dataForm" action="/process" method="POST">
+        <div class="form-control mb-32">
+          <textarea id="inputText" class="input input-alt" name="inputText" rows="10" cols="50" placeholder="ここにインスタンス割を入力してください。" required></textarea>
+          <span class="input-border input-border-alt"></span>
+        </div>
+        <button type="submit"><span class="text">変換する</span></button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
