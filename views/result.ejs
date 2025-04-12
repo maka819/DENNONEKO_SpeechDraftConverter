@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+
+<h1>変換結果</h1>
+<div id="result">
+    <% messages.forEach(function(message) { %>
+        <p><%= message %></p>
+    <% }) %>
+</div>
+
+<a href="/">戻る</a>
+
+<%- include('partials/footer') %>
