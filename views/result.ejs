@@ -1,12 +1,13 @@
 <%- include('partials/header') %>
 
-<h1>変換結果</h1>
-<div id="result">
-    <% messages.forEach(function(message) { %>
-        <p><%= message %></p>
-    <% }) %>
-</div>
-
-<a href="/">戻る</a>
+    <div class="child-box">
+        <h1 class="glitch">変換結果</h1>
+        <div id="result">
+            <% messages.forEach(function(message) { %>
+                    <textarea class="input" readonly><%= message %></textarea>
+            <% }) %>
+        </div>
+        <a href="/" class="btn"><span class="text">戻る</span></a>
+    </div>
 
 <%- include('partials/footer') %>

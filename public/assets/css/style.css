@@ -1,0 +1,145 @@
+@font-face {
+  font-family: '瀞ノグリッチ黒体';
+  src: url('/assets/fonts/瀞ノグリッチゴシックH1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  height: 100%;
+}
+
+/* grid displaying */
+.parent {
+  display: grid;
+  place-content: center;
+  place-items: center;
+}
+
+.child-box{
+  padding: 20% 0;
+  max-width: 80vw;
+}
+
+body {
+  color: #EEE;
+  text-align: center;
+  background-image: 
+    linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), 
+    url("/assets/img/background-dennoneko.jpg");
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: "瀞ノグリッチ黒体", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;  
+}
+
+h1 {
+  margin-bottom: 48px;
+}
+
+textarea {
+  box-sizing: border-box;
+  min-width: 100%;
+  min-height: 10rem;
+  font-size: 16px;
+  border-radius: 8px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-weight: bold;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin-bottom: 40px;
+  padding: 2%;
+}
+
+.btn{
+  font-family: "瀞ノグリッチ黒体", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin-bottom: 40px;
+}
+
+.btn a{
+  display: block;
+}
+
+/* text */
+.glitch {
+  font-size: 40px;
+  color: #00FFFF;
+  position: relative;
+  text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF;
+  animation: flicker 1.5s infinite;
+}
+
+.glitch::before {
+  animation: glitchTop 1s infinite;
+  color: #ff00ff;
+  clip-path: inset(0 0 50% 0);
+}
+
+.glitch::after {
+  animation: glitchBottom 1s infinite;
+  color: #00FFFF;
+  clip-path: inset(50% 0 0 0);
+}
+
+@keyframes glitchTop {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, -2px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, 1px); }
+  80% { transform: translate(2px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes glitchBottom {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(2px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 2px); }
+  80% { transform: translate(-2px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.1;
+  }
+}
+
+/* margin */
+.mb-32{
+  margin-bottom: 40px;
+}
+
+/* Adjust template */
+.input {
+  color: #00FF00;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.input:focus {
+    box-shadow:
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #0ff;
+}
+
+.input::placeholder {
+  color: #00FF00;
+}
+
+.btn {
+  max-width: 40%;
+  /* background: linear-gradient(90deg, #FF00FF 0%, #00FFFF 50%, #FFFF00 100%);  */
+}
+
+a.btn {
+  text-decoration: none;
+}
