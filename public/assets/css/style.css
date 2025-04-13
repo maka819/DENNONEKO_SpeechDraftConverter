@@ -141,6 +141,10 @@ textarea {
   /* background: linear-gradient(90deg, #FF00FF 0%, #00FFFF 50%, #FFFF00 100%);  */
 }
 
+.btn-back:hover{
+  background: linear-gradient(90deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+}
+
 a.btn {
   text-decoration: none;
 }
