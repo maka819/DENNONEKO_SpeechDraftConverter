@@ -40,27 +40,6 @@ app.post('/process', (req, res) => {
             messages
         });
 
-        // 結果を HTML に埋め込む
-        // let resultHTML = `
-        //     <!DOCTYPE html>
-        //     <html lang="ja">
-        //     <head>
-        //         <meta charset="UTF-8">
-        //         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        //         <title>結果</title>
-        //         <link rel="stylesheet" href="/style.css">
-        //     </head>
-        //     <body>
-        //         <h1>変換結果</h1>
-        //         <div id="result">
-        //             ${messages.map(message => `<p>${message}</p>`).join('')}
-        //         </div>
-        //         <a href="/">戻る</a>
-        //     </body>
-        //     </html>
-        // `;
-        // res.send(resultHTML);
-
     } catch (error) {
         console.error('エラー:', error);
         res.status(500).send('<h1>エラーが発生しました。入力内容を確認してください。</h1>');
