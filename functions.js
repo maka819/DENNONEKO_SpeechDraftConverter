@@ -66,20 +66,25 @@ function buildMessage(template, data) {
 
 // メッセージ生成関数
 function generateMessage(instanceName, performers, performerRoles) {
+    
     // デバッグ用
     // console.log("インスタンス名:", instanceName); 
     // console.log("パフォーマー名:", performers);
     // console.log("ロール情報:", roleInfo);
+
     const djsRaw = performerRoles["DJ"] || [];
     const dancersRaw = performerRoles["ダンサー"] || [];
     const guitarRaw = performerRoles["弾き語り"] || [];
+    
     // ロールごとに名前に「さん」をつけて格納、該当者が居なければ「該当なし」を挿入
     const djs = djsRaw.length > 0 ? djsRaw.map(name => `${name}さん`).join(" ") : "該当なし";
     const dancers = dancersRaw.length > 0 ? dancersRaw.map(name => `${name}さん`).join(" ") : "該当なし";
     const guitar = guitarRaw.length > 0 ? guitarRaw.map(name => `${name}さん`).join(" ") : "該当なし";
-    console.log("DJ:",djs);
-    console.log("ダンサー:",dancers);
-    console.log("弾き語り:",guitar);
+    
+    // デバッグ用
+    // console.log("DJ:",djs);
+    // console.log("ダンサー:",dancers);
+    // console.log("弾き語り:",guitar);
 
     if (performers.length === 0) {
         return buildMessage(templates.noPerformers, { instanceName });
@@ -113,7 +118,7 @@ function generateMessage(instanceName, performers, performerRoles) {
     }
     const DJMessage = `通常ルームでは ${djs} によるDJをお楽しみいただけます。`
     if (performers.length === 1) {
-        return buildMessage(templates.noDancer, {
+        return buildMessage(templates.default, {
              instanceName,
              DJMessage,
              dancerMessage: "",
@@ -162,13 +167,6 @@ default: `${commonHeader}
 \${DJMessage}
 \${dancerMessage}
 ゲストの \${djs} \${dancers} はお客様の方で、Showアバターをしていただき、
-フォールバックではなく本来の姿をお楽しみいただければと思います。
-${commonFooter}`,
-
-noDancer: `${commonHeader}
-\${DJMessage}
-\${dancerMessage}
-ゲストの \${djs}さん はお客様の方で、Showアバターをしていただき、
 フォールバックではなく本来の姿をお楽しみいただければと思います。
 ${commonFooter}`
 };
