@@ -30,7 +30,8 @@ app.post('/process', (req, res) => {
         const instanceNames = Object.keys(parsedData);
         const messages = instanceNames.map(instanceName => {
             const performers = parsedData[instanceName]['パフォーマー'];
-            return generateMessage(instanceName, performers);
+            const performerRoles = parsedData[instanceName]['ロール情報'];
+            return generateMessage(instanceName, performers, performerRoles);
         });
 
         // EJSテンプレートにデータ、タイトルを渡して描画

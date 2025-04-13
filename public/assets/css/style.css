@@ -30,6 +30,7 @@ body {
   background-position: 50% 50%;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-size: cover;
   font-family: "瀞ノグリッチ黒体", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;  
