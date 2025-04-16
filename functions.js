@@ -75,8 +75,7 @@ function generateMessage(instanceName, performers, performerRoles, waiters) {
     const djsRaw = performerRoles["DJ"] || [];
     const dancersRaw = performerRoles["ダンサー"] || [];
     const guitarRaw = performerRoles["弾き語り"] || [];
-    const waiterRaw = waiters[0] || "";
-
+    const waiterRaw = waiters || "";
     // ロールごとに名前に「さん」をつけて格納、該当者が居なければ「該当なし」を挿入
     const djs = djsRaw.length > 0 ? djsRaw.map(name => `${name}さん`).join(" ") : "該当なし";
     const dancers = dancersRaw.length > 0 ? dancersRaw.map(name => `${name}さん`).join(" ") : "該当なし";
@@ -87,11 +86,11 @@ function generateMessage(instanceName, performers, performerRoles, waiters) {
     // console.log("ダンサー:",dancers);
     // console.log("弾き語り:",guitar);
     
-    const waiterName = waiterRaw ? `${waiterRaw}さん` : "該当なし";
+    const waiterName = waiterRaw.length > 0 ? waiterRaw.map(name => `${name}さん`).join(" ") : "該当なし";
     const waiterMessage = waiterName !== "該当なし"
     ? `初来店で何をすればよいかわからないというお客様は、ウェイターの ${waiterName} にお声がけください`
     : "";
-
+    console.log(waiterName);
     if (performers.length === 0) {
         return buildMessage(templates.noPerformers, { instanceName, waiterMessage });
     }
