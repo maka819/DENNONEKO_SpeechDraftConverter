@@ -82,7 +82,7 @@
   margin-top: 2px;
   color: #006adc;
 }
-.copy_toggle {
+.copy-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,12 +94,12 @@
   color: #8e8e8e;
   cursor: pointer;
 }
-.copy_toggle > svg {
+.copy-toggle > svg {
   width: 20px;
   height: 20px;
 }
-.copy_toggle:active > svg > path,
-.copy_toggle:focus-within > svg > path {
+.copy-toggle:active > svg > path,
+.copy-toggle:focus-within > svg > path {
   animation: clipboard-check 300ms linear forwards;
 }
 .body {
