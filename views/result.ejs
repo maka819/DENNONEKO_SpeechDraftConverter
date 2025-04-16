@@ -22,13 +22,21 @@
                     </hgroup>
                     <% 
                         let groupNotification = "";
-                        messages.forEach(function(message) {
+                        messages.forEach(function(message, index ) {
                             groupNotification += `【${message.instanceName}】\n`;
-                            groupNotification += `DJ: ${(message.performerRoles.DJ || []).join(", ")}\n`;
-                            (message.performerRoles["ダンサー"] || []).forEach(function(dancer) {
-                            groupNotification += `ダンサー: ${dancer}`;
+                            (message.performerRoles["DJ"] || []).forEach(function(dj) {
+                                groupNotification += `DJ: ${dj}\n`;
                             });
-                            groupNotification += `\n\n`; // インスタンス間の区切り
+                            (message.performerRoles["ダンサー"] || []).forEach(function(dancer) {
+                                groupNotification += `ダンサー: ${dancer}`;
+                            });
+                            (message.performerRoles["弾き語り"] || []).forEach(function(guitar) {
+                                groupNotification += `弾き語り: ${guitar}`;
+                            });
+                            // 最後のループ以外でのみ改行を入れる
+                            if (index < messages.length - 1) {
+                                groupNotification += `\n\n`;
+                            }
                         });
                     %>
                     <textarea class="input copy-target" readonly><%= groupNotification %></textarea>
