@@ -5,32 +5,42 @@
   font-style: normal;
 }
 
-html {
+/* flex displaying */
+html, body {
+  margin: 0;
+  padding: 0;
   height: 100%;
 }
 
-/* flex displaying */
-.parent {
+.container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  min-height: 100vh;
 }
 
-.child-box {
-  padding: 0 10%;
+.sidebar {
+  max-width: 240px;
+}
+
+.content {
+  flex: 1;
+}
+
+.content {
+  padding: 10% 5%;
   max-width: 80vw;
   min-width: 800px;
-  flex-grow: 9;
 }
 
 /* navigation */
-nav.child-box {
+nav.sidebar {
   padding: 0;
-  height: 100vh;
+  height: auto;
   min-width: 200px;
   width: 10vw;
   background-color: rgba(0, 0, 0, 0.7);
   flex-grow: 1;
-  align-self: center;
+  align-self: stretch;
 }
 
 img.logo-img {
@@ -38,13 +48,14 @@ img.logo-img {
   align-self: center;
   display: block;
   margin: 0 auto;
+  padding-bottom: 16px;
 }
 
-nav.child-box ul li:first-child:before {
+nav.sidebar ul li:first-child:before {
   content: none;
 }
 
-nav.child-box ul li:first-child a{
+nav.sidebar ul li:first-child a{
   padding: 0;
 }
 
@@ -66,9 +77,11 @@ nav ul li::before {
   position: absolute;
   top: 16px;
   left: 15px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-weight: bold;
 }
 
-nav.child-box ul a {
+nav.sidebar ul a {
   font-family: 'Consolas', 'Courier New', monospace;
   font-weight: bold;
   font-optical-sizing: auto;
@@ -110,7 +123,7 @@ p {
 textarea {
   box-sizing: border-box;
   min-width: 100%;
-  min-height: 18rem;
+  min-height: 16rem;
   font-size: 16px;
   border-radius: 0 0 8px 8px;
   font-family: 'Consolas', 'Courier New', monospace;
@@ -232,7 +245,7 @@ p.title {
 }
 
 @media screen and (max-width:1024px){
-  .child-box{
+  .content{
     min-width: 300px;
   }
 }
