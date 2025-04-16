@@ -123,7 +123,7 @@ p {
 textarea {
   box-sizing: border-box;
   min-width: 100%;
-  min-height: 16rem;
+  min-height: 17rem;
   font-size: 16px;
   border-radius: 0 0 8px 8px;
   font-family: 'Consolas', 'Courier New', monospace;
@@ -144,6 +144,11 @@ span.copy-text {
   font-size: 16px;
   align-items: center;
   padding: 2px;
+}
+
+ /* コピーされた時の色（好きな色でOK） */
+span.copy-text.copied {
+  color: #00ffcc;
 }
 
 textarea:focus {

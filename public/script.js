@@ -44,12 +44,16 @@ function copyToClipboard(button) {
     // copy-textのテキストを変更
     const copyTextEl = button.querySelector(".copy-text");
     const originalText = copyTextEl.textContent;
-    copyTextEl.textContent = "Copied!";
 
-    // 1秒後に元に戻す
+    copyTextEl.textContent = "Copied!";
+    // テキスト色変更用のクラス追加
+    copyTextEl.classList.add("copied");
+    console.log(copyTextEl.classList);
+    // 3秒後に元に戻す
     setTimeout(() => {
       path.setAttribute("d", originalD);
       path.style.stroke = "currentColor";
       copyTextEl.textContent = originalText;
-    }, 1000);
+      copyTextEl.classList.remove("copied");
+    }, 3000);
 }
