@@ -56,6 +56,7 @@ function parseData(input) {
         
         instances[instanceName]["ロール情報"] = roleInfo;
     });
+
     return instances;
 }
 
@@ -65,17 +66,18 @@ function buildMessage(template, data) {
 }
 
 // メッセージ生成関数
-function generateMessage(instanceName, performers, performerRoles) {
+function generateMessage(instanceName, performers, performerRoles, waiters) {
     
     // デバッグ用
     // console.log("インスタンス名:", instanceName); 
     // console.log("パフォーマー名:", performers);
     // console.log("ロール情報:", roleInfo);
-
+    // console.log("ウェイター名:", waiters);
     const djsRaw = performerRoles["DJ"] || [];
     const dancersRaw = performerRoles["ダンサー"] || [];
     const guitarRaw = performerRoles["弾き語り"] || [];
-    
+    const waiterRaw = waiters[0] || "";
+    console.log(waiterRaw)
     // ロールごとに名前に「さん」をつけて格納、該当者が居なければ「該当なし」を挿入
     const djs = djsRaw.length > 0 ? djsRaw.map(name => `${name}さん`).join(" ") : "該当なし";
     const dancers = dancersRaw.length > 0 ? dancersRaw.map(name => `${name}さん`).join(" ") : "該当なし";
@@ -85,21 +87,27 @@ function generateMessage(instanceName, performers, performerRoles) {
     // console.log("DJ:",djs);
     // console.log("ダンサー:",dancers);
     // console.log("弾き語り:",guitar);
+    
+    const waiterName = waiterRaw ? `${waiterRaw}さん` : "該当なし";
+    const waiterMessage = waiterName !== "該当なし"
+    ? `初来店で何をすればよいかわからないというお客様は、ウェイターの ${waiterName} にお声がけください`
+    : "";
 
     if (performers.length === 0) {
-        return buildMessage(templates.noPerformers, { instanceName });
+        return buildMessage(templates.noPerformers, { instanceName, waiterMessage });
     }
     if (guitar.includes("FukoMaybe") && dancers.includes("べるちゃそ")) {
-        return buildMessage(templates.fukoAndBeru, { instanceName });
+        return buildMessage(templates.fukoAndBeru, { instanceName, waiterMessage });
     }
     if (performers.includes("FukoMaybe" )) {
-        return buildMessage(templates.fukoMaybe, { instanceName });
+        return buildMessage(templates.fukoMaybe, { instanceName, waiterMessage });
     }
     if (performers.includes("monodayo") || performers.includes("もの")) {
         const DJMessage = `通常ルームでは ものさん によるDJをお楽しみいただけます。\nものさーん！(ものさんに呼びかけ音楽を流してもらう)`
         if (performers.length === 1) {
             return buildMessage(templates.default, {
             instanceName,
+            waiterMessage,
             DJMessage,
             dancerMessage: "",
             djs: djs,
@@ -109,6 +117,7 @@ function generateMessage(instanceName, performers, performerRoles) {
         const dancerMessage = `VIPルームでは ${dancers} によるダンスをお楽しみいただけます。\nVIPルームのダンサーさんにつきましては、お客様からお手を触れないようお願いいたします。`
         return buildMessage(templates.default, {
             instanceName,
+            waiterMessage,
             DJMessage,
             dancerMessage,
             dancers: dancers,
@@ -120,6 +129,7 @@ function generateMessage(instanceName, performers, performerRoles) {
     if (performers.length === 1) {
         return buildMessage(templates.default, {
              instanceName,
+             waiterMessage,
              DJMessage,
              dancerMessage: "",
              djs: djs,
@@ -129,6 +139,7 @@ function generateMessage(instanceName, performers, performerRoles) {
     const dancerMessage = `VIPルームでは ${dancers} によるダンスをお楽しみいただけます。\nVIPルームのダンサーさんにつきましては、お客様からお手を触れないようお願いいたします。`
     return buildMessage(templates.default, {
         instanceName,
+        waiterMessage,
         DJMessage,
         dancerMessage,
         djs: djs,
@@ -142,6 +153,7 @@ const commonHeader = `皆様本日はご来店いただき誠にありがとう�
 本日は合計3インスタンスでの営業となり、こちらは【\${instanceName}】インスタンスです。`;
 
 const commonFooter = `また奥のVIPルームは現在無料開放中です。扉をuseで開きますので、ご自由にご入室ください。
+\${waiterMessage}
 それでは、ごゆっくりお過ごしください。`;
 
 const templates = {
