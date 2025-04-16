@@ -72,12 +72,11 @@ function generateMessage(instanceName, performers, performerRoles, waiters) {
     // console.log("インスタンス名:", instanceName); 
     // console.log("パフォーマー名:", performers);
     // console.log("ロール情報:", roleInfo);
-    // console.log("ウェイター名:", waiters);
     const djsRaw = performerRoles["DJ"] || [];
     const dancersRaw = performerRoles["ダンサー"] || [];
     const guitarRaw = performerRoles["弾き語り"] || [];
     const waiterRaw = waiters[0] || "";
-    console.log(waiterRaw)
+
     // ロールごとに名前に「さん」をつけて格納、該当者が居なければ「該当なし」を挿入
     const djs = djsRaw.length > 0 ? djsRaw.map(name => `${name}さん`).join(" ") : "該当なし";
     const dancers = dancersRaw.length > 0 ? dancersRaw.map(name => `${name}さん`).join(" ") : "該当なし";
@@ -147,7 +146,7 @@ function generateMessage(instanceName, performers, performerRoles, waiters) {
     });
 }
 
-// 共通テンプレート
+// アナウンス原稿用テンプレート
 const commonHeader = `皆様本日はご来店いただき誠にありがとうございます。
 ご来場の皆様に、注意事項をお知らせいたします。
 本日は合計3インスタンスでの営業となり、こちらは【\${instanceName}】インスタンスです。`;

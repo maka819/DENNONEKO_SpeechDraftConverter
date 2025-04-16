@@ -35,7 +35,8 @@ app.post('/process', (req, res) => {
             const message = generateMessage(instanceName, performers, performerRoles, waiters);
             return{
                 instanceName,
-                message
+                message,
+                performerRoles
             };
         });
 
