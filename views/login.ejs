@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<h1 class="glitch">ログイン</h1>
+
+<% if (error) { %><p style="color:red;" class="mb-32"><%= error %></p><% } %>
+
+<form class="form" method="POST" action="/login">
+<span class="input-span">
+    <label for="username" class="label glitch">UserName</label>
+    <input type="text" name="username" placeholder="ユーザー名" required>
+</span>
+<span class="input-span mb-32">
+    <label for="password" class="label glitch">Password</label>
+    <input type="password" name="password" placeholder="パスワード" required>
+</span>
+    <button type="submit" class="btn btn-nomal">ログイン</button>
+</form>
+
+<%- include('partials/footer') %>

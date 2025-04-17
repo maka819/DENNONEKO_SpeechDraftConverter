@@ -90,7 +90,6 @@ function generateMessage(instanceName, performers, performerRoles, waiters) {
     const waiterMessage = waiterName !== "該当なし"
     ? `初来店で何をすればよいかわからないというお客様は、ウェイターの ${waiterName} にお声がけください`
     : "";
-    console.log(waiterName);
     if (performers.length === 0) {
         return buildMessage(templates.noPerformers, { instanceName, waiterMessage });
     }

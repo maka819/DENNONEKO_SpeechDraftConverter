@@ -1,0 +1,26 @@
+.content {
+    max-width: 100%;
+}
+
+/* from template */
+.form input[name="username"],
+.form input[name="password"] {
+    border-radius: 0.5rem;
+    padding: 1rem 0.75rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--clr-alpha);
+    outline: 2px solid var(--bg-dark);
+}
+
+.form input[name="username"]:focus,
+.form input[type="password"]:focus {
+    outline: 2px solid var(--clr);
+}
+
+.form {
+    margin: 0 auto;
+    --clr: #00FFFF;
+}

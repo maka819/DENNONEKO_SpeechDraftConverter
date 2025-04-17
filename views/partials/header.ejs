@@ -7,14 +7,22 @@
   <title><%= title + ' | BAR電脳猫'  || "BAR電脳猫" %></title>
   <link rel="stylesheet" href="/assets/css/template.css">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <% if (typeof pageId !== "undefined" && pageId === "login") { %>
+  <!-- loginのみで表示 -->
+  <link rel="stylesheet" href="/assets/css/login.css">
+  <% } %> 
   <script src="/script.js" defer></script>
 </head>
 <body>
   <div class="container">
+    <% if (typeof pageId === "undefined" || pageId !== "login") { %>
+    <!-- login以外で表示 -->
     <nav class="sidebar">
       <ul>
-        <li><a href="/"><img class="logo-img" src="/assets/img/logo-dennoneko.png" srcset="/assets/img/logo-dennoneko.png 1x, /assets/img/logo-dennoneko@2x.png 2x" alt="BAR電脳猫" ></a></li>
-        <li><a href="/">インスタンス割テキスト変換ツール</a></li>
+        <li><a href="/home"><img class="logo-img" src="/assets/img/logo-dennoneko.png" srcset="/assets/img/logo-dennoneko.png 1x, /assets/img/logo-dennoneko@2x.png 2x" alt="BAR電脳猫" ></a></li>
+        <li><a href="/converter">インスタンス割テキスト変換ツール</a></li>
+        <li><a href="/logout">ログアウト</a></li>
       </ul>
     </nav>
+    <% } %>
     <main class="content">
